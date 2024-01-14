@@ -31,6 +31,7 @@ abstract class Model
         $query->close();
         return null;
     }
+
     public function findBy($column, $value): \stdClass|null
     {
         $query = $this->model->query("SELECT {$this->select} FROM {$this->table} WHERE {$column} = '{$value}'");
@@ -40,6 +41,7 @@ abstract class Model
         $query->close();
         return null;
     }
+
     public function all(): array|null
     {
         $query = $this->model->query("SELECT {$this->select} FROM {$this->table} {$this->orderBy}");
@@ -87,5 +89,21 @@ abstract class Model
         $stmt->close();
         $this->model->close();
         return false;
+    }
+
+    public function updateById($id, array $data): bool
+    {
+        $columns = '';
+        foreach ($data as $key => $value) {
+            $columns .= "{$key} = '{$value}', ";
+        }
+        $columns = rtrim($columns, ", ");
+        $sql = "UPDATE {$this->table} SET {$columns} WHERE id = {$id}";
+        $status = false;
+        if ($this->model->query($sql) === TRUE) {
+            $status = true;
+        }
+        $this->model->close();
+        return $status;
     }
 }

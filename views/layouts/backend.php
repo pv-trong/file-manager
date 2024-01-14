@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="<?= asset('css/style.css') ?>">
 </head>
 <body>
-<!-- App Start-->
+<div id="notification-toast" class="toast-wrapper top-center"></div>
 <div id="root">
     <!-- App Layout-->
     <div class="app-layout-classic flex flex-auto flex-col">
@@ -28,7 +28,7 @@
                             <div class="menu-title">Apps</div>
                             <ul>
                                 <li data-menu-item="classic-welcome"
-                                    class="menu-item menu-item-single mb-2 menu-item-active">
+                                    class="menu-item menu-item-single mb-2 <?= url() === url('backend/dashboard') ? 'menu-item-active' : '' ?>">
                                     <a class="menu-item-link" href="<?= url('backend/dashboard') ?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                              stroke-width="1.5" stroke="currentColor" aria-hidden="true"
@@ -39,7 +39,8 @@
                                         <span class="menu-item-text">Dashboard</span>
                                     </a>
                                 </li>
-                                <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
+                                <li data-menu-item="classic-welcome"
+                                    class="menu-item menu-item-single mb-2 <?= url() === url('backend/end-shift-report') ? 'menu-item-active' : '' ?>">
                                     <a class="menu-item-link" href="<?= url('backend/end-shift-report') ?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                              stroke-width="1.5" stroke="currentColor" aria-hidden="true"
@@ -50,15 +51,12 @@
                                         <span class="menu-item-text">End Shift Report</span>
                                     </a>
                                 </li>
-                                <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2">
-                                    <a class="menu-item-link" href="<?= url('backend/end-shift-report') ?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                             stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                             class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                  d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
+                                <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/financial-statement') ? 'menu-item-active' : '' ?>">
+                                    <a class="menu-item-link" href="<?= url('backend/financial-statement') ?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"></path>
                                         </svg>
-                                        <span class="menu-item-text">End Shift Report</span>
+                                        <span class="menu-item-text">Financial Statement</span>
                                     </a>
                                 </li>
                             </ul>
@@ -524,17 +522,35 @@
                                                 <div class="menu-title">Apps</div>
                                                 <ul>
                                                     <li data-menu-item="classic-welcome"
-                                                        class="menu-item menu-item-single mb-2 menu-item-active">
-                                                        <a class="menu-item-link" href="classic-welcome.html">
-                                                            <svg class="menu-item-icon" stroke="currentColor"
-                                                                 fill="none" stroke-width="0" viewBox="0 0 24 24"
-                                                                 height="1em" width="1em"
-                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                        class="menu-item menu-item-single mb-2 <?= url() === url('backend/dashboard') ? 'menu-item-active' : '' ?>">
+                                                        <a class="menu-item-link" href="<?= url('backend/dashboard') ?>">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                                 stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                                                                 class="w-6 h-6">
                                                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                                                      stroke-width="2"
-                                                                      d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
+                                                                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
                                                             </svg>
-                                                            <span class="menu-item-text">Welcome</span>
+                                                            <span class="menu-item-text">Dashboard</span>
+                                                        </a>
+                                                    </li>
+                                                    <li data-menu-item="classic-welcome"
+                                                        class="menu-item menu-item-single mb-2 <?= url() === url('backend/end-shift-report') ? 'menu-item-active' : '' ?>">
+                                                        <a class="menu-item-link" href="<?= url('backend/end-shift-report') ?>">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                                 stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                                                                 class="w-6 h-6">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                      d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
+                                                            </svg>
+                                                            <span class="menu-item-text">End Shift Report</span>
+                                                        </a>
+                                                    </li>
+                                                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/financial-statement') ? 'menu-item-active' : '' ?>">
+                                                        <a class="menu-item-link" href="<?= url('backend/financial-statement') ?>">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"></path>
+                                                            </svg>
+                                                            <span class="menu-item-text">Financial Statement</span>
                                                         </a>
                                                     </li>
                                                 </ul>

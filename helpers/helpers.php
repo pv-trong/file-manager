@@ -9,13 +9,14 @@ if (!function_exists('asset')) {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             $protocol = 'https';
         }
-        $domain = $_SERVER['HTTP_HOST']; // Lấy tên host (domain)
+        $domain = $_SERVER['HTTP_HOST'];
         return $protocol . "://" . $domain . '/public/' . $path;
     }
 }
 if (!function_exists('url')) {
     function url($uri = ''): string
     {
+        $uri = $uri ?: ltrim($_SERVER['REQUEST_URI'],'/');
         $protocol = 'http';
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             $protocol = 'https';
