@@ -1,5 +1,5 @@
 <div class="flex justify-end mb-4">
-    <button href="<?= url('backend/end-shift-report/create') ?>"
+    <a href="<?= url('backend/end-shift-report/create') ?>"
             class="btn btn-sm bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-white">
         <span class="flex items-center justify-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -8,7 +8,7 @@
             </svg>
             <span>Create</span>
         </span>
-    </button>
+    </a>
 </div>
 <div class="card !border-0 card-border mb-3">
     <div class="card-body card-gutterless p-4">
