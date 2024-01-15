@@ -13,7 +13,7 @@
     <meta property="og:image" content="">
     <meta property="og:url" content="">
     <meta property="og:type" content="article">
-
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!--title-->
     <title>App Landing Page Template</title>
 
