@@ -35,6 +35,7 @@ class RegisterController extends Controller
                 'message'=> 'Register successfully!'
             ]);
             header("Location: /login");
+            exit();
         } else {
             session_flash_set('message',[
                 'type'=> 'Danger',

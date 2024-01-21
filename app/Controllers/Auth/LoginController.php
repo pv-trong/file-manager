@@ -35,6 +35,7 @@ class LoginController extends Controller
                 'message'=> 'Login failed!'
             ]);
             header("Location: /login");
+            exit();
         }
         header("Location: /backend/dashboard");
     }
