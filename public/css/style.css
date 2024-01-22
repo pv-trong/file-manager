@@ -10128,3 +10128,13 @@ hr{
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
+
+.sorting::after {
+  content: ' ▲';
+}
+.sorting_asc::after {
+  content: ' ▼';
+}
+.sorting_desc::after {
+  content: ' ▲';
+}

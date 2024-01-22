@@ -20,6 +20,17 @@ $router->post('/backend/end-shift-report/store','Backend\ReportController@store'
 $router->get('/backend/end-shift-report/edit/{id}','Backend\ReportController@edit');
 $router->post('/backend/end-shift-report/update/{id}','Backend\ReportController@update');
 
+$router->get('/backend/daily-report','Backend\DailyReportController@index');
+
+$router->post('/backend/ajax/safe360','Backend\DailyReportController@ajaxSafe360');
+$router->get('/backend/safe360/create','Backend\DailyReportController@createSafe360');
+$router->post('/backend/safe360/store','Backend\DailyReportController@storeSafe360');
+$router->get('/backend/safe360/edit/{id}','Backend\DailyReportController@editSafe360');
+$router->post('/backend/safe360/update/{id}','Backend\DailyReportController@updateSafe360');
+
+$router->post('/backend/ajax/direct-debit-account','Backend\DailyReportController@ajaxDirectDebitAccount');
+$router->get('/backend/dd-account/create','Backend\DirectDebitAccountController@create');
+
 $router->get('/backend/financial-statement','Backend\ReportController@index');
 
 //Middleware

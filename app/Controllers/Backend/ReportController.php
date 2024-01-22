@@ -7,16 +7,16 @@ use App\Models\Report;
 
 class ReportController extends Controller
 {
-    private Report $model;
+    private Report $reportModel;
 
     public function __construct()
     {
-        $this->model = new Report();
+        $this->reportModel = new Report();
     }
 
     public function index()
     {
-        $reports = $this->model->all();
+        $reports = $this->reportModel->all();
         $data = [
             'scripts' => [
                 'vendors/datatables/jquery.dataTables.min.js',
@@ -34,7 +34,7 @@ class ReportController extends Controller
             'date_from' => $_POST['date_from'],
             'date_to' => $_POST['date_to'],
         ];
-        $reports = $this->model->search($query);
+        $reports = $this->reportModel->search($query);
         $data = [
             'scripts' => [
                 'vendors/datatables/jquery.dataTables.min.js',
@@ -48,7 +48,7 @@ class ReportController extends Controller
     }
     public function create()
     {
-        $this->renderWithLayout('backend/form-report');
+        $this->renderWithLayout('forms/form-report');
     }
 
     public function store()
@@ -68,7 +68,7 @@ class ReportController extends Controller
             'total' => $_POST['safe_drop'] + $_POST['wet_stock'] + $_POST['dry_stock'] + $_POST['payout'],
             'created_at' => date('Y/m/d H:i:s'),
         ];
-        $isCreated = $this->model->insert($data);
+        $isCreated = $this->reportModel->insert($data);
         if ($isCreated) {
             session_flash_set('message', [
                 'type' => 'Success',
@@ -82,13 +82,14 @@ class ReportController extends Controller
             ]);
             header("Refresh:0");
         }
+        exit();
     }
 
     public function edit($id)
     {
-        $report = $this->model->findById($id);
+        $report = $this->reportModel->findById($id);
         $report->non_cash_payment = json_decode($report->non_cash_payment, true);
-        $this->renderWithLayout('backend/form-report', 'backend', ['report' => $report]);
+        $this->renderWithLayout('forms/form-report', 'backend', ['report' => $report]);
     }
 
     public function update($id)
@@ -107,7 +108,7 @@ class ReportController extends Controller
             'payout' => $_POST['payout'],
             'total' => $_POST['safe_drop'] + $_POST['wet_stock'] + $_POST['dry_stock'] + $_POST['payout'],
         ];
-        $isUpdated = $this->model->updateById($id, $data);
+        $isUpdated = $this->reportModel->updateById($id, $data);
         if ($isUpdated) {
             session_flash_set('message', [
                 'type' => 'Success',

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\DB;
+use DateTime;
 
 abstract class Model
 {
@@ -105,5 +106,44 @@ abstract class Model
         }
         $this->model->close();
         return $status;
+    }
+
+    public function count(): int
+    {
+        $stmt = $this->model->prepare("SELECT COUNT(*) AS allcount FROM {$this->table}");
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function getDatatable()
+    {
+        $row = $_POST['start'];
+        $rowperpage = $_POST['length']; // Rows display per page
+        $columnIndex = $_POST['order'][0]['column']; // Column index
+        $columnName = $_POST['columns'][$columnIndex]['data']; // Column name
+        $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
+        $limit = '';
+        $conditions = '';
+        if ($row > 0) {
+            $limit = "LIMIT {$row}, {$rowperpage}";
+        }
+        if ($_POST['date_from']) {
+            $date_from = DateTime::createFromFormat('d/m/Y', $_POST['date_from'])->format('Y-m-d');
+            $conditions .= "WHERE DATE(created_at) >= '{$date_from}' ";
+        }
+        if ($_POST['date_to']) {
+            $conditions .= $_POST['date_from'] ? ' AND ' : 'WHERE ';
+            $date_to = DateTime::createFromFormat('d/m/Y', $_POST['date_to'])->format('Y-m-d');
+            $conditions .= " DATE(created_at) <= '{$date_to}'";
+        }
+        $query = $this->model->query("SELECT * FROM {$this->table} {$conditions} ORDER BY {$columnName} {$columnSortOrder} {$limit}");
+        $records = [];
+        if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+                $records[] = $row;
+            }
+        }
+        $query->close();
+        return $records;
     }
 }

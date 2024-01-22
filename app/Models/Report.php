@@ -25,7 +25,7 @@ class Report extends Model
             $date_to = DateTime::createFromFormat('d/m/Y', $query['date_to'])->format('Y-m-d');
             $conditions .= " DATE(created_at) <= '{$date_to}'";
         }
-        $query = $this->model->query("SELECT * FROM {$this->table} {$this->orderBy} {$conditions}");
+        $query = $this->model->query("SELECT * FROM {$this->table} {$conditions} {$this->orderBy}");
         $records = [];
         if ($query->num_rows > 0) {
             while ($row = $query->fetch_assoc()) {

@@ -2,6 +2,7 @@
 require  __DIR__ . '/session.php';
 require  __DIR__ . '/middleware.php';
 require  __DIR__ . '/auth.php';
+require  __DIR__ . '/datatable.php';
 if (!function_exists('asset')) {
     function asset($path): string
     {
