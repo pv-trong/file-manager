@@ -622,5 +622,13 @@
         })
     </script>
 <?php } ?>
+<?php if (session_flash_existed('tabCurrent')) { ?>
+    <?php $tabCurrent = session_flash_get('tabCurrent') ?>
+    <script>
+        window.addEventListener('load', function () {
+            $('.tab-nav[data-bs-target="<?= $tabCurrent['target'] ?>"]').trigger('click');
+        })
+    </script>
+<?php } ?>
 </body>
 </html>

@@ -4,7 +4,7 @@
             <div class="flex flex-wrap lg:flex-nowrap gap-4">
                 <div class="input-group w-full lg:w-auto flex-0 lg:flex-1">
                     <span class="input-wrapper">
-                        <input datepicker class="input pr-8" type="text" placeholder="Start Date" name="date_from" readonly="" datepicker-format="dd/mm/yyyy" autocomplete="off" value="<?= @$old['date_from'] ?>">
+                        <input datepicker class="input pr-8" type="text" placeholder="Start Date" name="date_from" datepicker-format="dd/mm/yyyy" autocomplete="off">
                         <div class="input-suffix-end">
                             <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" class="text-lg" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -13,7 +13,7 @@
                     </span>
                     <div class="input-addon">To</div>
                     <span class="input-wrapper">
-                        <input datepicker class="input pr-8" type="text" placeholder="End Date" name="date_to" readonly="" datepicker-format="dd/mm/yyyy" autocomplete="off" value="<?= @$old['date_to'] ?>">
+                        <input datepicker class="input pr-8" type="text" placeholder="End Date" name="date_to" datepicker-format="dd/mm/yyyy" autocomplete="off">
                         <div class="input-suffix-end">
                             <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" class="text-lg" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>

@@ -13,7 +13,7 @@ abstract class Model
     protected array $hidden = [];
     protected string $select = '*';
     protected string $orderBy = '';
-
+    protected string $created_column = 'created_at';
     public function __construct()
     {
         $this->model = DB::getInstance();
@@ -32,7 +32,19 @@ abstract class Model
         $query->close();
         return null;
     }
-
+    public function destroy($id)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE id = ?";
+        if ($stmt = $this->model->prepare($sql)) {
+            $stmt->bind_param("i", $id);
+            if ($stmt->execute()) {
+                $this->model->close();
+                return true;
+            }
+        }
+        $this->model->close();
+        return false;
+    }
     public function findBy($column, $value): \stdClass|null
     {
         $query = $this->model->query("SELECT {$this->select} FROM {$this->table} WHERE {$column} = '{$value}'");
@@ -73,6 +85,11 @@ abstract class Model
 
     public function insert(array $data): bool
     {
+        if (isset($data[$this->created_column])) {
+            $data[$this->created_column] = DateTime::createFromFormat('d/m/Y', $data[$this->created_column])->format('Y-m-d');
+        } else {
+            $data[$this->created_column] = date('Y-m-d H:i:s');
+        }
         $columns = implode(", ", array_keys($data));
         $placeholders = implode(", ", array_fill(0, count($data), '?'));
         $sql = "INSERT INTO {$this->table} ({$columns}) VALUES ({$placeholders})";
@@ -94,6 +111,9 @@ abstract class Model
 
     public function updateById($id, array $data): bool
     {
+        if (isset($data[$this->created_column])) {
+            $data[$this->created_column] = DateTime::createFromFormat('d/m/Y', $data[$this->created_column])->format('Y-m-d');
+        }
         $columns = '';
         foreach ($data as $key => $value) {
             $columns .= "{$key} = '{$value}', ";
@@ -129,12 +149,12 @@ abstract class Model
         }
         if ($_POST['date_from']) {
             $date_from = DateTime::createFromFormat('d/m/Y', $_POST['date_from'])->format('Y-m-d');
-            $conditions .= "WHERE DATE(created_at) >= '{$date_from}' ";
+            $conditions .= "WHERE DATE({$this->created_column}) >= '{$date_from}' ";
         }
         if ($_POST['date_to']) {
             $conditions .= $_POST['date_from'] ? ' AND ' : 'WHERE ';
             $date_to = DateTime::createFromFormat('d/m/Y', $_POST['date_to'])->format('Y-m-d');
-            $conditions .= " DATE(created_at) <= '{$date_to}'";
+            $conditions .= " DATE({$this->created_column}) <= '{$date_to}'";
         }
         $query = $this->model->query("SELECT * FROM {$this->table} {$conditions} ORDER BY {$columnName} {$columnSortOrder} {$limit}");
         $records = [];
@@ -145,5 +165,29 @@ abstract class Model
         }
         $query->close();
         return $records;
+    }
+
+    function inserts($records)
+    {
+        if (empty($records)) {
+            return false;
+        }
+        $columns = array_keys(reset($records));
+        $sql = "INSERT INTO {$this->table} (" . implode(", ", $columns) . ") VALUES ";
+        $valuesArr = [];
+        foreach ($records as $row) {
+            $valueList = [];
+            foreach ($row as $value) {
+                $valueList[] = "'" . $this->model->real_escape_string($value) . "'";
+            }
+            $valuesArr[] = "(" . implode(", ", $valueList) . ")";
+        }
+        $sql .= implode(", ", $valuesArr);
+        if ($this->model->query($sql) === TRUE) {
+            $this->model->close();
+            return true;
+        }
+        $this->model->close();
+        return false;
     }
 }

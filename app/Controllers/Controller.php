@@ -5,8 +5,8 @@ namespace App\Controllers;
 class Controller
 {
     protected $model = null;
-    protected $view_create;
-    protected $view_edit;
+    protected $form;
+    protected $view_index;
     protected $route_list;
     protected $scripts = [];
     function render($file, $data = array())
@@ -19,7 +19,15 @@ class Controller
             echo 'view không tồn tại';
         }
     }
-
+    function index() {
+        $data = [
+            'scripts' => [
+                'vendors/datatables/jquery.dataTables.min.js',
+                'vendors/datatables/dataTables.custom-ui.min.js',
+            ],
+        ];
+        $this->renderWithLayout($this->view_index, 'backend', $data);
+    }
     function renderWithLayout($file, $layout = 'backend', $data = array())
     {
         $content = __DIR__ . '/../../views/' . $file . '.php';
@@ -33,12 +41,12 @@ class Controller
     }
     function create()
     {
-        $this->renderWithLayout($this->view_create, 'backend', ['scripts' => $this->scripts]);
+        $this->renderWithLayout($this->form, 'backend', ['scripts' => $this->scripts]);
     }
     function edit($id)
     {
         $data = $this->model->findById($id);
-        $this->renderWithLayout($this->view_edit, 'backend', ['dataView' => $data, 'scripts' => $this->scripts]);
+        $this->renderWithLayout($this->form, 'backend', ['dataView' => $data, 'scripts' => $this->scripts]);
     }
     function store()
     {
@@ -48,7 +56,7 @@ class Controller
                 'type' => 'Success',
                 'message' => 'Create successfully!'
             ]);
-            header("Location: /backend/daily-report");
+            header("Location: {$this->route_list}");
         } else {
             session_flash_set('message', [
                 'type' => 'Danger',
@@ -75,5 +83,28 @@ class Controller
             header("Refresh:0");
             exit();
         }
+    }
+    function destroy($id)
+    {
+        $isDestroyed = $this->model->destroy($id);
+        if ($isDestroyed) {
+            session_flash_set('message', [
+                'type' => 'Success',
+                'message' => 'Destroy successfully!'
+            ]);
+            header("Location: {$this->route_list}");
+        } else {
+            session_flash_set('message', [
+                'type' => 'Danger',
+                'message' => 'Failed!'
+            ]);
+            header("Refresh:0");
+        }
+    }
+    function getAjaxDatatable()
+    {
+        $data = $this->model->getDatatable();
+        $count = $this->model->count();
+        setDatatable($data, $count, $count);
     }
 }

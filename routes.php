@@ -22,16 +22,30 @@ $router->post('/backend/end-shift-report/update/{id}','Backend\ReportController@
 
 $router->get('/backend/daily-report','Backend\DailyReportController@index');
 
-$router->post('/backend/ajax/safe360','Backend\DailyReportController@ajaxSafe360');
-$router->get('/backend/safe360/create','Backend\DailyReportController@createSafe360');
-$router->post('/backend/safe360/store','Backend\DailyReportController@storeSafe360');
-$router->get('/backend/safe360/edit/{id}','Backend\DailyReportController@editSafe360');
-$router->post('/backend/safe360/update/{id}','Backend\DailyReportController@updateSafe360');
+$router->post('/backend/ajax/safe360','Backend\Safe360Controller@getAjaxDatatable');
+$router->get('/backend/safe360/create','Backend\Safe360Controller@create');
+$router->post('/backend/safe360/store','Backend\Safe360Controller@store');
+$router->get('/backend/safe360/edit/{id}','Backend\Safe360Controller@edit');
+$router->post('/backend/safe360/update/{id}','Backend\Safe360Controller@update');
 
-$router->post('/backend/ajax/direct-debit-account','Backend\DailyReportController@ajaxDirectDebitAccount');
+$router->post('/backend/ajax/direct-debit-account','Backend\DirectDebitAccountController@getAjaxDatatable');
 $router->get('/backend/dd-account/create','Backend\DirectDebitAccountController@create');
+$router->post('/backend/dd-account/store','Backend\DirectDebitAccountController@store');
+$router->get('/backend/dd-account/destroy/{id}','Backend\DirectDebitAccountController@destroy');
 
-$router->get('/backend/financial-statement','Backend\ReportController@index');
+$router->post('/backend/ajax/tank-level','Backend\TankLevelController@getAjaxDatatable');
+$router->get('/backend/tank-level/create','Backend\TankLevelController@create');
+$router->post('/backend/tank-level/store','Backend\TankLevelController@store');
+$router->get('/backend/tank-level/edit/{id}','Backend\TankLevelController@edit');
+$router->post('/backend/tank-level/update/{id}','Backend\TankLevelController@update');
+
+$router->post('/backend/ajax/loading','Backend\LoadingController@getAjaxDatatable');
+$router->get('/backend/loading/create','Backend\LoadingController@create');
+$router->post('/backend/loading/store','Backend\LoadingController@store');
+$router->get('/backend/loading/edit/{id}','Backend\LoadingController@edit');
+$router->post('/backend/loading/update/{id}','Backend\LoadingController@update');
+
+$router->get('/backend/financial-statement','Backend\FinancialStatementController@index');
 
 //Middleware
 $router->addMiddleware(function ($method, $path) {
