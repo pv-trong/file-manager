@@ -38,7 +38,7 @@ window.addEventListener('load', () => {
                 },
                 {
                     data: 'total_cdm',
-                    title: 'Dry Stock',
+                    title: 'Total CDM',
                 },
                 {
                     data: 'coin_shortage',
@@ -293,6 +293,7 @@ window.addEventListener('load', () => {
             ],
         }
     )
+    
     $('#form-filter-loading').on('submit', function (e) {
         e.preventDefault();
         loadingTable.ajax.reload(null, false);

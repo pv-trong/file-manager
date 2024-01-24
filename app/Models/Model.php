@@ -14,6 +14,7 @@ abstract class Model
     protected string $select = '*';
     protected string $orderBy = '';
     protected string $created_column = 'created_at';
+    protected string $format_create = 'd/m/Y';
     public function __construct()
     {
         $this->model = DB::getInstance();
@@ -86,7 +87,7 @@ abstract class Model
     public function insert(array $data): bool
     {
         if (isset($data[$this->created_column])) {
-            $data[$this->created_column] = DateTime::createFromFormat('d/m/Y', $data[$this->created_column])->format('Y-m-d');
+            $data[$this->created_column] = DateTime::createFromFormat($this->format_create, $data[$this->created_column])->format('Y-m-d');
         } else {
             $data[$this->created_column] = date('Y-m-d H:i:s');
         }

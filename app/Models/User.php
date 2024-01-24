@@ -8,6 +8,7 @@ class User extends Model
     protected array $fields = ['id', 'password', 'username', 'email', 'role', 'created_at'];
     protected array $hidden = ['password'];
     private string $loginWith = 'username';
+    protected string $format_create = 'Y/m/d H:i:s';
 
     public function register($user_data): bool
     {

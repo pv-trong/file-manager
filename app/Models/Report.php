@@ -8,7 +8,7 @@ class Report extends Model
 {
     protected string $table = 'reports';
     protected array $fields = ['id', 'pos', 'safe_drop', 'wet_stock', 'dry_stock', 'non_cash_payment', 'payout', 'total', 'created_at'];
-
+    protected string $format_create = 'Y/m/d H:i:s';
     public function search($query): array
     {
         $conditions = '';
