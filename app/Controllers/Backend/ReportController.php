@@ -3,15 +3,30 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
+use App\Models\DirectDebitAccount;
+use App\Models\Loading;
+use App\Models\MySQL;
 use App\Models\Report;
+use App\Models\Safe360;
+use App\Models\TankLevel;
 
 class ReportController extends Controller
 {
     private Report $reportModel;
+    private TankLevel $tankLevel;
+    private Safe360 $safe360;
+    private DirectDebitAccount $directDebitAccount;
+    private Loading $loading;
+    private MySQL $MySQL;
 
     public function __construct()
     {
         $this->reportModel = new Report();
+        $this->tankLevel = new TankLevel();
+        $this->safe360 = new Safe360();
+        $this->directDebitAccount = new DirectDebitAccount();
+        $this->loading = new Loading();
+        $this->MySQL = new MySQL();
     }
 
     public function index()
@@ -124,5 +139,20 @@ class ReportController extends Controller
             header("Refresh:0");
             exit();
         }
+    }
+
+    public function report()
+    {
+        $safe_360 = $this->safe360->report();
+        $tank_level = $this->tankLevel->report();
+        $direct_debit_account = $this->directDebitAccount->report();
+        $loading = $this->loading->report();
+        $this->MySQL->getModel()->close();
+        echo json_encode([
+            'safe360' => $safe_360,
+            'tank_level' => $tank_level,
+            'direct_debit_account' => $direct_debit_account,
+            'loading' => $loading,
+        ]);
     }
 }

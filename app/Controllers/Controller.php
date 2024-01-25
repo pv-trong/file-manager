@@ -9,6 +9,7 @@ class Controller
     protected $view_index;
     protected $route_list;
     protected $scripts = [];
+    protected $styles = [];
     function render($file, $data = array())
     {
         $view_file = __DIR__ . '/../../views/' . $file . '.php';
@@ -19,7 +20,8 @@ class Controller
             echo 'view không tồn tại';
         }
     }
-    function index() {
+    function index()
+    {
         $data = [
             'scripts' => [
                 'vendors/datatables/jquery.dataTables.min.js',
@@ -41,12 +43,12 @@ class Controller
     }
     function create()
     {
-        $this->renderWithLayout($this->form, 'backend', ['scripts' => $this->scripts]);
+        $this->renderWithLayout($this->form, 'backend', ['scripts' => $this->scripts, 'styles' => $this->styles]);
     }
     function edit($id)
     {
         $data = $this->model->findById($id);
-        $this->renderWithLayout($this->form, 'backend', ['dataView' => $data, 'scripts' => $this->scripts]);
+        $this->renderWithLayout($this->form, 'backend', ['dataView' => $data, 'scripts' => $this->scripts, 'styles' => $this->styles]);
     }
     function store()
     {

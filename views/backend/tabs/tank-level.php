@@ -52,11 +52,12 @@
     <thead>
         <tr>
             <th>#</th>
+            <th>Time</th>
             <th>Premium 95</th>
             <th>Premium 97</th>
             <th>Diesel Bio</th>
             <th>Diesel Euro 5</th>
-            <th>Date</th>
+            <th>Create At</th>
             <th>Action</th>
         </tr>
     </thead>

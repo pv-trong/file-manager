@@ -3,15 +3,13 @@
         <form class="needs-validation" method="POST" action="<?= isset($dataView) ? url('backend/tank-level/update/' . $dataView->id) : url('backend/tank-level/store') ?>">
             <div class="form-container vertical">
                 <div class="form-item vertical">
-                    <label class="form-label mb-2">Date</label>
-                    <span class="input-wrapper">
-                        <input datepicker datepicker-orientation="bottom" name="date" class="input pr-8" datepicker-format="dd/mm/yyyy" placeholder="Pick a date"
-                                 value="<?= isset($dataView->date) ? DateTime::createFromFormat('Y-m-d H:i:s',$dataView->date)->format('d/m/Y') : '' ?>"
-                                  readonly required
-                                  >
+                    <label class="form-label mb-2">Time</label>
+                    <span class="input-wrapper" id="time-picker-wrapper">
+                        <input name="time" id="time-picker" class="input pr-8" placeholder="Pick time" value="<?= isset($dataView->time) ? $dataView->time : '' ?>" readonly required>
+                        <input name="date" type="hidden" value="<?= isset($dataView->date) ? DateTime::createFromFormat('Y-m-d H:i:s', $dataView->date)->format('d/m/Y') : date('d/m/Y') ?>" readonly required>
                         <div class="input-suffix-end">
-                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" class="text-lg" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
                     </span>

@@ -54,6 +54,7 @@
             <th>#</th>
             <th>Amount</th>
             <th>Date</th>
+            <th>Created At</th>
             <th>Action</th>
         </tr>
     </thead>

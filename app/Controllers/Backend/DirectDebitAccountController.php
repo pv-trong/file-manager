@@ -24,6 +24,7 @@ class DirectDebitAccountController extends Controller
     {
         foreach ($_POST['data'] as $key => $item) {
             $_POST['data'][$key]['date'] = DateTime::createFromFormat('d/m/Y', $item['date'])->format('Y-m-d');
+            $_POST['data'][$key]['created_at'] = date('Y-m-d H:i:s');
         }
         $isInserted = $this->model->inserts($_POST['data']);
         if ($isInserted) {

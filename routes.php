@@ -3,6 +3,8 @@
 use App\Router;
 $router = new Router();
 $router->get('/', 'PagesController@index');
+$router->get('/contact', 'PagesController@contact');
+$router->get('/about', 'PagesController@about');
 
 $router->get('/login', 'Auth\LoginController@index');
 $router->post('/login', 'Auth\LoginController@login');
@@ -27,6 +29,7 @@ $router->get('/backend/safe360/create','Backend\Safe360Controller@create');
 $router->post('/backend/safe360/store','Backend\Safe360Controller@store');
 $router->get('/backend/safe360/edit/{id}','Backend\Safe360Controller@edit');
 $router->post('/backend/safe360/update/{id}','Backend\Safe360Controller@update');
+$router->get('/backend/safe360/destroy/{id}','Backend\Safe360Controller@destroy');
 
 $router->post('/backend/ajax/direct-debit-account','Backend\DirectDebitAccountController@getAjaxDatatable');
 $router->get('/backend/dd-account/create','Backend\DirectDebitAccountController@create');
@@ -38,14 +41,19 @@ $router->get('/backend/tank-level/create','Backend\TankLevelController@create');
 $router->post('/backend/tank-level/store','Backend\TankLevelController@store');
 $router->get('/backend/tank-level/edit/{id}','Backend\TankLevelController@edit');
 $router->post('/backend/tank-level/update/{id}','Backend\TankLevelController@update');
+$router->get('/backend/tank-level/destroy/{id}','Backend\TankLevelController@destroy');
 
 $router->post('/backend/ajax/loading','Backend\LoadingController@getAjaxDatatable');
 $router->get('/backend/loading/create','Backend\LoadingController@create');
 $router->post('/backend/loading/store','Backend\LoadingController@store');
 $router->get('/backend/loading/edit/{id}','Backend\LoadingController@edit');
 $router->post('/backend/loading/update/{id}','Backend\LoadingController@update');
+$router->get('/backend/loading/destroy/{id}','Backend\LoadingController@destroy');
 
 $router->get('/backend/financial-statement','Backend\FinancialStatementController@index');
+$router->post('/backend/financial-statement','Backend\FinancialStatementController@getData');
+
+$router->post('/backend/daily-report-dashboard','Backend\ReportController@report');
 
 //Middleware
 $router->addMiddleware(function ($method, $path) {

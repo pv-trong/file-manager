@@ -16,4 +16,35 @@ class Safe360Controller extends Controller
             'target' => '#safe-360-tab-pane',
         ]);
     }
+    function store()
+    {
+        $existed = $this->model->findBy('DATE(created_at)', date('Y-m-d'));
+        if ($existed) {
+            session_flash_set('message', [
+                'type' => 'Danger',
+                'message' => 'A record already exists today!'
+            ]);
+            if (isset($_SERVER["HTTP_REFERER"])) {
+                header("Location: " . $_SERVER["HTTP_REFERER"]);
+            }
+            exit();
+        }
+        $isCreated = $this->model->insert($_POST);
+        if ($isCreated) {
+            session_flash_set('message', [
+                'type' => 'Success',
+                'message' => 'Create successfully!'
+            ]);
+            header("Location: {$this->route_list}");
+        } else {
+            session_flash_set('message', [
+                'type' => 'Danger',
+                'message' => 'Failed!'
+            ]);
+            if (isset($_SERVER["HTTP_REFERER"])) {
+                header("Location: " . $_SERVER["HTTP_REFERER"]);
+            }
+            exit();
+        }
+    }
 }
