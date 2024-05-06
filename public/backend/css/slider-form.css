@@ -1,0 +1,47 @@
+.item {
+    height: 100px;
+    display: inline-block;
+    background-color: #fff;
+    border: solid 1px rgb(0, 0, 0, 0.2);
+    padding: 4px;
+    margin: 4px 12px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.item>img {
+    height: 100%;
+    border-radius: 8px;
+}
+
+.item>.remove {
+    cursor: pointer;
+}
+
+.item>.remove::before {
+    content: '✕';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+    top: 4px;
+    right: 0;
+    font-weight: 600;
+}
+
+.item>.remove::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    background-color: #e5e7eb;
+    top: 4px;
+    right: 4px;
+    border-radius: 999px;
+    opacity: .75;
+}
+
+.blue-background-class {
+    background-color: #C8EBFB;
+}

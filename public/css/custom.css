@@ -1,170 +1,374 @@
-.bootstrap-timepicker-widget table td a {
-    color: var(--bs-gray-700)
+body {
+    font-family: 'TH Sarabun New';
+    font-size: 24px;
+    text-shadow: 0px 0px;
 }
 
-.bootstrap-timepicker-widget table td a:hover {
-    background-color: transparent;
-    border-color: transparent;
-    border-radius: 4px;
-    color: #556ee6;
-    text-decoration: none
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-.bootstrap-timepicker-widget table td input {
-    width: 32px;
-    height: 32px;
-    border: 0;
-    color: var(--bs-body-color);
-    border: 1px solid var(--bs-border-color);
-    background-color: var(--bs-custom-white)
+.brandLogo {
+    max-width: 80px;
+    display: block;
 }
 
-.bootstrap-timepicker-widget.dropdown-menu:after {
-    border-bottom-color: var(--bs-gray-200)
+.header {
+    padding: 30px;
 }
 
-.bootstrap-timepicker-widget.timepicker-orient-bottom:after {
-    border-top-color: var(--bs-gray-200)
+.navigation {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    justify-content: end;
+    align-items: center;
 }
 
-.timepicker-orient-top {
-    top: calc(1.5em + .94rem + 2px) !important
+.navigation li {
+    padding: 20px;
 }
 
-.timepicker-orient-bottom {
-    top: auto !important;
-    bottom: calc(1.5em + .94rem + 2px) !important
+.navigation li:last-child {
+    padding-right: 0px;
 }
 
-.bootstrap-timepicker-widget {
-    left: 0 !important;
-    right: auto !important
+.navigation li a {
+    color: #000;
+    text-decoration: none;
+
 }
 
-.bootstrap-timepicker-widget.timepicker-orient-left:before {
-    left: 6px;
-    right: auto
+.navigation li a.btn {
+    color: #fff;
 }
 
-.bootstrap-timepicker-widget.timepicker-orient-left::after {
-    left: 7px;
-    right: auto
+.btn {
+    background-color: #000;
+    color: #fff;
+    border-radius: 0px;
+    font-size: 24px;
+    line-height: 1;
+    padding: 8px 25px;
+    padding-top: 12px;
 }
 
-.datepicker {
-    border: 1px solid var(--bs-border-color);
-    padding: 8px;
-    z-index: 999 !important
+.btn:hover {
+    background-color: #D9D5C8;
 }
 
-.datepicker table tr th {
-    font-weight: 500
-}
-
-.datepicker table tr td .active.disabled,
-.datepicker table tr td span.active.active,
-.datepicker table tr td span.active:hover.active,
-.datepicker table tr td.active,
-.datepicker table tr td.active.disabled:hover,
-.datepicker table tr td.active:hover,
-.datepicker table tr td.selected,
-.datepicker table tr td.selected.disabled,
-.datepicker table tr td.selected.disabled:hover,
-.datepicker table tr td.selected:hover,
-.datepicker table tr td.today,
-.datepicker table tr td.today.disabled,
-.datepicker table tr td.today.disabled:hover,
-.datepicker table tr td.today:hover {
-    background-color: var(--primary-color-500) !important;
-    background-image: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    color: #fff !important
-}
-
-.datepicker table tr td span.focused,
-.datepicker table tr td span:hover,
-.datepicker table tr td.day.focused,
-.datepicker table tr td.day:hover {
-    background: rgb(209, 213, 219);
-}
-
-.datepicker table tr td span.new,
-.datepicker table tr td span.old,
-.datepicker table tr td.new,
-.datepicker table tr td.old {
-    color: rgb(107, 114, 128);
-    opacity: .6
-}
-
-.datepicker table tr td.range,
-.datepicker table tr td.range.disabled,
-.datepicker table tr td.range.disabled:hover,
-.datepicker table tr td.range:hover {
-    background-color: rgb(209, 213, 219);
-}
-
-.table-condensed>tbody>tr>td,
-.table-condensed>thead>tr>th {
-    padding: 7px
-}
-
-.bootstrap-datepicker-inline .datepicker-inline {
-    width: auto !important;
-    display: inline-block
-}
-
-.datepicker-container {
-    border: 1px solid #eff2f7;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    background-color: #fff
-}
-
-.datepicker-container.datepicker-inline {
-    width: 212px
-}
-
-.datepicker {
-    color: var(--bs-text-muted)
-}
-
-.datepicker .datepicker-switch:hover,
-.datepicker .next:hover,
-.datepicker .prev:hover,
-.datepicker tfoot tr th:hover {
-    background: rgb(209, 213, 219);
-}
-
-.datepicker-panel>ul>li {
+.bannerContent {
     background-color: #fff;
-    border-radius: 4px
+    padding: 50px 80px;
+    margin-right: -130px;
+    z-index: 1;
+    position: relative;
+    padding-left: 0px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-.datepicker-panel>ul>li.picked,
-.datepicker-panel>ul>li.picked:hover {
-    background-color: rgba(85, 110, 230, .25);
-    color: #556ee6
+h1 {
+    font-size: 60px;
+    margin: 0px;
+    line-height: 1;
+    font-weight: 500;
 }
 
-.datepicker-panel>ul>li.highlighted,
-.datepicker-panel>ul>li.highlighted:hover,
-.datepicker-panel>ul>li:hover {
-    background-color: rgb(209, 213, 219);
-    color: #fff
+.bannerContent h1 {
+    margin-bottom: 30px;
 }
 
-.datepicker-panel>ul>li.muted,
-.datepicker-panel>ul>li.muted:hover {
-    color: rgba(85, 110, 230, .25);
-    opacity: .6
+.btn-primary {
+    background-color: #D9D5C8;
+    color: #000;
+    border: 0px;
+    padding: 10px 40px;
+    padding-top: 12px;
 }
 
-.datepicker-panel>ul[data-view=week]>li {
-    font-weight: 500
+.content-padding {
+    padding: 100px 0px;
 }
 
-.datepicker-panel>ul[data-view=week]>li,
-.datepicker-panel>ul[data-view=week]>li:hover {
-    background-color: #fff
+.content-padding-sm {
+    padding: 50px 0px;
+}
+
+h2 {
+    font-size: 60px;
+    line-height: 1;
+}
+
+
+
+.listStyle {
+
+    margin: 0px;
+    padding: 0px;
+}
+
+.listStyle li {
+    list-style: none;
+    background-image: url(../img/check.svg);
+    background-size: 25px;
+    background-position: top 3px left;
+    background-repeat: no-repeat;
+    padding-left: 35px;
+    line-height: 1.2;
+    margin: 8px 0px;
+}
+
+.smallStyle {
+    color: #ACA399;
+    position: relative;
+    display: block;
+}
+
+.smallStyle:before {
+    content: '';
+    width: 200px;
+    display: block;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #ACA399;
+    margin: auto;
+    bottom: 18px;
+}
+
+.smallStyle span {
+    background-color: #fff;
+    position: relative;
+    padding: 0 10px;
+}
+
+.brandBg {
+    background-color: #F6F4F1;
+}
+
+.max-width {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.brandBg .smallStyle span {
+    background-color: #F6F4F1;
+}
+
+.brandBg2 {
+    background-color: #C3BEB8;
+}
+
+.content-padding-all {
+    padding: 80px;
+}
+
+.form-control {
+    background-color: #F9F9F7;
+    border-color: #DCDCDC;
+    font-size: 24px;
+    padding: 10px 30px;
+    border-radius: 0px;
+    resize: none;
+}
+
+form.form {
+    padding: 40px 0px;
+}
+
+.footer {
+    background-color: #000;
+    color: #ACA399;
+    margin-top: 80px;
+}
+
+.footer ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    line-height: 1;
+}
+
+.footer ul li {
+    padding-right: 30px;
+}
+
+.footer ul.social {
+    flex-direction: column;
+}
+
+.footer ul.social li {
+    padding: 10px 0px;
+}
+
+.footer ul.social li img {
+    margin-right: 10px;
+    vertical-align: -6px;
+}
+
+.footer hr {
+    margin: 2rem 0;
+}
+
+.footer a {
+    color: #ACA399;
+    text-decoration: none;
+}
+
+.footer h4 {
+    margin-bottom: 20px;
+}
+
+.footer p {
+    line-height: 1.2;
+}
+
+.footer .brandLogo {
+    margin-bottom: 40px;
+}
+
+.copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bannerContent .carousel-control-next,
+.bannerContent .carousel-control-prev {
+    right: initial;
+    left: 0;
+    margin: 0px;
+    display: block;
+    width: auto;
+    top: initial;
+    bottom: -70px;
+    opacity: 1;
+}
+
+.bannerContent .carousel-control-next {
+    left: 70px;
+}
+
+
+@media (max-width:820px) {
+    .bannerContent {
+        padding: 40px 0px;
+        margin: 0px;
+        padding-bottom: 80px;
+    }
+
+    .bannerContent .carousel-control-next,
+    .bannerContent .carousel-control-prev {
+        bottom: 0;
+    }
+
+    .innerContent {
+        padding: 40px 0px;
+    }
+
+    .footer {
+        padding-top: 15px;
+    }
+
+    .m-column-reverse {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width:480px) {
+    .navigation {
+        display: none;
+        margin-top: 30px;
+    }
+
+    .content-padding-sm {
+        padding: 20px 0px;
+    }
+
+    .content-padding {
+        padding: 50px 0px;
+    }
+
+    .content-padding-all {
+        padding: 40px;
+    }
+
+    .footer .content-padding-all {
+        padding: 40px 0px;
+    }
+
+    .form-control {
+        margin-bottom: 20px;
+    }
+
+    .header {
+        padding: 30px 10px;
+    }
+
+    .bannerContent {
+        text-align: center;
+    }
+
+    .innerContent {
+        text-align: center;
+    }
+
+    .listStyle {
+        max-width: 90%;
+        margin: auto;
+        text-align: left;
+    }
+
+    .brandBg {
+        text-align: center;
+    }
+
+    .toggleMenu {
+        width: 50px;
+        height: 40px;
+        display: block;
+        position: absolute;
+        right: 25px;
+        top: 50px;
+        border: 1px solid #000;
+        border-left: 0px;
+        border-right: 0px;
+        cursor: pointer;
+    }
+
+    .toggleMenu:before {
+        content: '';
+        position: absolute;
+        top: 19px;
+        width: 100%;
+        height: 1px;
+        background-color: #000;
+    }
+
+    .navigation li {
+        padding: 10px 0;
+    }
+
+    .bannerContent {
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+
+    .bannerContent .carousel-control-next,
+    .bannerContent .carousel-control-prev {
+        bottom: initial;
+        top: 10px;
+        left:30%;
+    }
+
+    .bannerContent .carousel-control-next {
+        right: 30%;
+        left: initial;
+    }
 }

@@ -9,13 +9,13 @@
     <link rel="shortcut icon" href="<?= asset('img/favicon.ico') ?>">
     <title>HTML Tailwind Admin Template</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="<?= asset('css/style.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= asset('backend/css/style.css') ?>">
     <?php if (isset($styles)) { ?>
         <?php foreach ($styles as $style) { ?>
             <link rel="stylesheet" type="text/css" href="<?= asset($style) ?>">
-            <?php }
+    <?php }
     } ?>
-    <link rel="stylesheet" type="text/css" href="<?= asset('css/custom.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= asset('backend/css/custom.css') ?>">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                 <div class="side-nav side-nav-light side-nav-expand">
                     <div class="side-nav-header">
                         <div class="logo px-6">
-                            <img src="<?= asset('img/logo/logo-light-full.png') ?>" alt="logo">
+                            <img src="<?= asset('backend/img/logo/logo-light-full.png') ?>" alt="logo">
                         </div>
                     </div>
                     <div class="side-nav-content relative side-nav-scroll">
@@ -44,28 +44,20 @@
                                             <span class="menu-item-text">Dashboard</span>
                                         </a>
                                     </li>
-                                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/end-shift-report') ? 'menu-item-active' : '' ?>">
-                                        <a class="menu-item-link" href="<?= url('backend/end-shift-report') ?>">
+                                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/file-manager') ? 'menu-item-active' : '' ?>">
+                                        <a class="menu-item-link" href="<?= url('backend/file-manager') ?>">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
                                             </svg>
-                                            <span class="menu-item-text">End Shift Report</span>
+                                            <span class="menu-item-text">File Manager</span>
                                         </a>
                                     </li>
-                                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/daily-report') ? 'menu-item-active' : '' ?>">
-                                        <a class="menu-item-link" href="<?= url('backend/daily-report') ?>">
+                                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/slider-manager') ? 'menu-item-active' : '' ?>">
+                                        <a class="menu-item-link" href="<?= url('backend/slider-manager') ?>">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122"></path>
                                             </svg>
-                                            <span class="menu-item-text">Daily Report</span>
-                                        </a>
-                                    </li>
-                                    <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/financial-statement') ? 'menu-item-active' : '' ?>">
-                                        <a class="menu-item-link" href="<?= url('backend/financial-statement') ?>">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"></path>
-                                            </svg>
-                                            <span class="menu-item-text">Financial Statement</span>
+                                            <span class="menu-item-text">Slider Manager</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -112,7 +104,7 @@
                                     <div class="dropdown-toggle" id="nav-lang-dropdown" data-bs-toggle="dropdown">
                                         <div class="header-action-item header-action-item-hoverable flex items-center">
                                             <span class="avatar avatar-circle" data-avatar-size="24">
-                                                <img class="avatar-img avatar-circle" src="<?= asset('img/countries/us.png') ?>" loading="lazy" alt="">
+                                                <img class="avatar-img avatar-circle" src="<?= asset('backend/img/countries/us.png') ?>" loading="lazy" alt="">
                                             </span>
                                         </div>
                                     </div>
@@ -120,7 +112,7 @@
                                         <li class="menu-item menu-item-hoverable mb-1 justify-between h-[35px]">
                                             <span class="flex items-center">
                                                 <span class="avatar avatar-circle" data-avatar-size="18">
-                                                    <img class="avatar-img avatar-circle" src="<?= asset('img/countries/us.png') ?>" loading="lazy" alt="">
+                                                    <img class="avatar-img avatar-circle" src="<?= asset('backend/img/countries/us.png') ?>" loading="lazy" alt="">
                                                 </span>
                                                 <span class="ltr:ml-2 rtl:mr-2">English</span>
                                             </span>
@@ -131,7 +123,7 @@
                                         <li class="menu-item menu-item-hoverable mb-1 justify-between h-[35px]">
                                             <span class="flex items-center">
                                                 <span class="avatar avatar-circle" data-avatar-size="18">
-                                                    <img class="avatar-img avatar-circle" src="<?= asset('img/countries/cn.png') ?>" loading="lazy" alt="">
+                                                    <img class="avatar-img avatar-circle" src="<?= asset('backend/img/countries/cn.png') ?>" loading="lazy" alt="">
                                                 </span>
                                                 <span class="ltr:ml-2 rtl:mr-2">
                                                     Chinese
@@ -152,7 +144,7 @@
                                     <div class="dropdown-toggle" id="user-dropdown" data-bs-toggle="dropdown">
                                         <div class="header-action-item flex items-center gap-2">
                                             <span class="avatar avatar-circle" data-avatar-size="32" style="width: 32px">
-                                                <img class="avatar-img avatar-circle" src="<?= asset('img/avatars/thumb-1.jpg') ?>" loading="lazy" alt=""></span>
+                                                <img class="avatar-img avatar-circle" src="<?= asset('backend/img/avatars/thumb-1.jpg') ?>" loading="lazy" alt=""></span>
                                             <div class="hidden md:block">
                                                 <div class="text-xs capitalize"><?= auth()['username'] ?></div>
                                                 <div class="font-bold"><?= auth()['email'] ?></div>
@@ -163,7 +155,7 @@
                                         <li class="menu-item-header">
                                             <div class="py-2 px-3 flex items-center gap-2">
                                                 <span class="avatar avatar-circle avatar-md">
-                                                    <img class="avatar-img avatar-circle" src="<?= asset('img/avatars/thumb-1.jpg') ?>" loading="lazy" alt="">
+                                                    <img class="avatar-img avatar-circle" src="<?= asset('backend/img/avatars/thumb-1.jpg') ?>" loading="lazy" alt="">
                                                 </span>
                                                 <div>
                                                     <div class="font-bold text-gray-900 dark:text-gray-100"><?= auth()['username'] ?></div>
@@ -398,28 +390,20 @@
                                                                 <span class="menu-item-text">Dashboard</span>
                                                             </a>
                                                         </li>
-                                                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/end-shift-report') ? 'menu-item-active' : '' ?>">
-                                                            <a class="menu-item-link" href="<?= url('backend/end-shift-report') ?>">
+                                                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/file-manager') ? 'menu-item-active' : '' ?>">
+                                                            <a class="menu-item-link" href="<?= url('backend/file-manager') ?>">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
                                                                 </svg>
-                                                                <span class="menu-item-text">End Shift Report</span>
+                                                                <span class="menu-item-text">File Manager</span>
                                                             </a>
                                                         </li>
-                                                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/daily-report') ? 'menu-item-active' : '' ?>">
-                                                            <a class="menu-item-link" href="<?= url('backend/daily-report') ?>">
+                                                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/slider-manager') ? 'menu-item-active' : '' ?>">
+                                                            <a class="menu-item-link" href="<?= url('backend/slider-manager') ?>">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122"></path>
                                                                 </svg>
-                                                                <span class="menu-item-text">Daily Report</span>
-                                                            </a>
-                                                        </li>
-                                                        <li data-menu-item="classic-welcome" class="menu-item menu-item-single mb-2 <?= url() === url('backend/financial-statement') ? 'menu-item-active' : '' ?>">
-                                                            <a class="menu-item-link" href="<?= url('backend/financial-statement') ?>">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"></path>
-                                                                </svg>
-                                                                <span class="menu-item-text">Financial Statement</span>
+                                                                <span class="menu-item-text">Slider Manager</span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -457,9 +441,9 @@
         </div>
     </div>
 
-    <script src="<?= asset('js/vendors.min.js') ?>"></script>
-    <script src="<?= asset('js/app.min.js') ?>"></script>
-    <script src="<?= asset('js/toast-html.js') ?>"></script>
+    <script src="<?= asset('backend/js/vendors.min.js') ?>"></script>
+    <script src="<?= asset('backend/js/app.min.js') ?>"></script>
+    <script src="<?= asset('backend/js/toast-html.js') ?>"></script>
     <?php if (isset($scripts)) { ?>
         <?php foreach ($scripts as $script) { ?>
             <script src="<?= asset($script) ?>"></script>

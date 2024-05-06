@@ -22,134 +22,72 @@
     <link rel="icon" href="<?= asset('home/img/favicon.png') ?>" type="image/png" sizes="16x16">
 
     <!--google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7COpen+Sans&display=swap" rel="stylesheet">
-
-    <!--Bootstrap css-->
-    <link rel="stylesheet" href="<?= asset('home/css/bootstrap.min.css') ?>">
-    <!--Magnific popup css-->
-    <link rel="stylesheet" href="<?= asset('home/css/magnific-popup.css') ?>">
-    <!--Themify icon css-->
-    <link rel="stylesheet" href="<?= asset('home/css/themify-icons.css') ?>">
-    <!--animated css-->
-    <link rel="stylesheet" href="<?= asset('home/css/animate.min.css') ?>">
-
-    <!--Owl carousel css-->
-    <link rel="stylesheet" href="<?= asset('home/css/owl.carousel.min.css') ?>">
-    <link rel="stylesheet" href="<?= asset('home/css/owl.theme.default.min.css') ?>">
-    <!--custom css-->
-    <link rel="stylesheet" href="<?= asset('home/css/style.css') ?>">
-    <!--responsive css-->
-    <link rel="stylesheet" href="<?= asset('home/css/responsive.css') ?>">
+    <link rel="stylesheet" href="<?= asset('fonts/fonts.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/custom.css') ?>">
 
 </head>
 
 <body>
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3"><a href="#" class="brandLogo"><img src="img/logo.png"></a>
+                    <div class="toggleMenu"></div>
+                </div>
+                <div class="col-md-9">
+                    <ul class="navigation">
+                        <li><a href="#">บริการทั้งหมดของเรา</a></li>
 
-    <!--header section start-->
-    <header class="header custom-header">
-        <!--start navbar-->
-        <nav class="navbar navbar-expand-lg fixed-top custom-nav white-bg">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    Logo
-                    <!-- <img src="<?= asset('home/img/logo-color-1x.png') ?>" width="120" alt="logo" class="img-fluid"> -->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="ti-menu"></span>
-                </button>
-
-                <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="<?= url('about') ?>">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="<?= url('contact') ?>">Contact</a>
-                        </li>
-                        <?php if (!auth_check()) { ?>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="<?= url('login') ?>">Sign In</a>
-                            </li>
-                        <?php } else { ?>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link page-scroll dropdown-toggle" href="#" id="navbarDropdownPage" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Hello <?= strtoupper(auth()['username']) ?> !
-                                </a>
-                                <div class="dropdown-menu submenu" aria-labelledby="navbarDropdownPage">
-                                    <a class="dropdown-item" href="<?= url('logout') ?>">Logout</a>
-                                </div>
-                            </li>
-                        <?php } ?>
+                        <li><a href="#">ผลงานของเรา</a></li>
+                        <li><a href="#" class="btn">ติดต่อเรา</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
-        <!--end navbar-->
+        </div>
     </header>
-    <!--header section end-->
 
     <!--body content wrap start-->
     <div class="main">
         <?php include $content; ?>
     </div>
-    <!--body content wrap end-->
-
-    <!--footer section start-->
-    <footer class="footer-section">
-
-        <!--footer top start-->
-        <div class="footer-top background-img-2" style="background: url('/home/img/footer-bg.png')no-repeat center top / cover">
-            <!--footer bottom copyright start-->
-            <div class="footer-bottom border-gray-light mt-5 py-3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-7">
-                            <div class="copyright-wrap small-text">
-                                <p class="mb-0 text-white">© Trogn</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-5">
-                            <div class="terms-policy-wrap text-md-end text-start">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item"><a class="small-text" href="#">Terms</a></li>
-                                    <li class="list-inline-item"><a class="small-text" href="#">Security</a></li>
-                                    <li class="list-inline-item"><a class="small-text" href="#">Privacy Policy</a></li>
-                                </ul>
-                            </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="img/map.png">
+                </div>
+                <div class="col-lg-6">
+                    <div class="content-padding-all">
+                        <a href="#" class="brandLogo"><img src="img/logoWhite.png"></a>
+                        <p>285/30 ถ.ช้างคลาน ต.ช้างคลาน อ.เมือง<br> อำเภอ จังหวัดเชียงใหม่ 50100</p>
+                        <ul class="social">
+                            <li><img src="img/phone.svg">099-4262416</li>
+                            <li><img src="img/mail.svg">housetohomecnx@gmail.com</li>
+                        </ul>
+                        <hr>
+                        <h4>ติดต่อเราได้ที่</h4>
+                        <ul>
+                            <li><a href="#"><img src="img/facebook.svg"></a></li>
+                            <li><a href="#"><img src="img/line.svg"></a></li>
+                            <li><a href="#"><img src="img/tiktok.svg"></a></li>
+                        </ul>
+                        <hr>
+                        <div class="copyright">
+                            <ul>
+                                <li><a href="#">เกี่ยวกับ</a></li>
+                                <li><a href="#">บริการ</a></li>
+                                <li><a href="#">ข้อความรับรอง</a></li>
+                            </ul>
+                            <span>© ลิขสิทธิ์ 2024</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--footer bottom copyright end-->
         </div>
-        <!--footer top end-->
     </footer>
-    <!--footer section end-->
-
-    <!--jQuery-->
-    <script src="<?= asset('home/js/jquery-3.6.1.min.js') ?>"></script>
-    <!--Popper js-->
-    <script src="<?= asset('home/js/popper.min.js') ?>"></script>
-    <!--Bootstrap js-->
-    <script src="<?= asset('home/js/jquery.magnific-popup.min.js') ?>"></script>
-    <!--Magnific popup js-->
-    <script src="<?= asset('home/js/jquery.magnific-popup.min.js') ?>"></script>
-    <!--jquery easing js-->
-    <script src="<?= asset('home/js/jquery.easing.min.js') ?>"></script>
-
-    <!--wow js-->
-    <script src="<?= asset('home/js/wow.min.js') ?>"></script>
-    <!--owl carousel js-->
-    <script src="<?= asset('home/js/owl.carousel.min.js') ?>"></script>
-    <!--countdown js-->
-    <script src="<?= asset('home/js/jquery.countdown.min.js') ?>"></script>
-    <!--validator js-->
-    <script src="<?= asset('home/js/validator.min.js') ?>"></script>
-    <!--custom js-->
-    <script src="<?= asset('home/js/scripts.js') ?>"></script>
+    <script src="<?= asset('js/jquery.min.js') ?>"></script>
+    <script src="<?= asset('js/bootstrap.min.js') ?>"></script>
 </body>
 
 </html>

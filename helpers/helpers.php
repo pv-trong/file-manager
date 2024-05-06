@@ -11,7 +11,7 @@ if (!function_exists('asset')) {
             $protocol = 'https';
         }
         $domain = $_SERVER['HTTP_HOST'];
-        return $protocol . "://" . $domain . '/' . $path;
+        return $protocol . "://" . $domain . '/public/' . $path;
     }
 }
 if (!function_exists('url')) {

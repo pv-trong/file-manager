@@ -12,7 +12,7 @@ class DB
     public static function getInstance()
     {
         $host = 'localhost';
-        $dbname = 'staff-mamage';
+        $dbname = 'ckfinder';
         $username = 'root';
         $password = '';
         if (!isset(self::$instance)) {
