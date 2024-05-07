@@ -2,10 +2,27 @@
 
 namespace App\Controllers;
 
+use App\Models\Slider;
+
 class PagesController extends Controller
-{    public function index()
+{
+    private Slider $slider;
+    public function __construct() {
+        $this->slider = new Slider();
+    }
+    public function index()
     {
-        $this->renderWithLayout('index', 'guest');
+        $data = [
+            'sliders' => [
+                'sliderFirst' => null,
+            ],
+        ];
+        $firstSlider = $this->slider->findBy('slider_key', 'first-slider');
+        if ($firstSlider) {
+            $firstSlider->images = explode(';', $firstSlider->images);
+            $data['sliders']['sliderFirst'] = $firstSlider;
+        }
+        $this->renderWithLayout('index', 'guest', $data);
     }
 
     public function dashboard()
@@ -13,7 +30,8 @@ class PagesController extends Controller
         $data = [];
         $this->renderWithLayout('dashboard', 'backend', $data);
     }
-    public function fileManager() {
+    public function fileManager()
+    {
         $data = [
             'scripts' => [
                 'ckfinder/ckfinder.js',

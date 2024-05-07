@@ -24,6 +24,8 @@ $router->get('/backend/slider-manager/edit/{id}', 'SliderController@edit');
 $router->post('/backend/slider-manager/update/{id}', 'SliderController@update');
 
 $router->get('/backend/slider-manager/destroy/{id}', 'SliderController@destroy');
+
+$router->post('/lead-store', 'LeadController@store');
 //Middleware
 $router->addMiddleware(function ($method, $path) {
     md_guest($method, $path, '/login');

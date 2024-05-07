@@ -1,53 +1,47 @@
-<section>
-    <div class="container">
-        <div class="row align-items-center m-column-reverse">
-            <div class="col-lg-4">
-                <div class="bannerContent">
-                    <h1>House to Home เชียงใหม่ ออกแบบ สร้างบ้าน ตกแต่งภายใน จัดสวน </h1>
-                    <a href="#" class="btn btn-primary">ติดต่อเรา</a>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <img src="img/right.svg">
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <img src="img/left.svg">
-                    </button>
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 5"></button>
+<?php if (isset($sliders['sliderFirst'])) { ?>
+    <section>
+        <div class="container">
+            <div class="row align-items-center m-column-reverse">
+                <div class="col-lg-4">
+                    <div class="bannerContent">
+                        <h1>House to Home เชียงใหม่ ออกแบบ สร้างบ้าน ตกแต่งภายใน จัดสวน </h1>
+                        <a href="#" class="btn btn-primary">ติดต่อเรา</a>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <img src="img/right.svg">
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <img src="img/left.svg">
+                        </button>
                     </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="img/img1.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="col-lg-8">
+                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <?php foreach ($sliders['sliderFirst']->images as $key => $slider) { ?>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $key ?>" <?= $key === 0 ? "class=active" : "" ?> aria-current="true" aria-label="Slide 1"></button>
+                            <?php } ?>
                         </div>
-                        <div class="carousel-item">
-                            <img src="img/img2.jpeg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/img3.jpeg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/img4.jpeg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/img5.jpeg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/img6.jpeg" class="d-block w-100" alt="...">
+                        <div class="carousel-inner">
+                            <?php foreach ($sliders['sliderFirst']->images as $key => $slider) { ?>
+                                <div class="carousel-item <?= $key === 0 ? 'active' : '' ?>">
+                                    <img src="<?= $slider ?>" class="d-block w-100" alt="...">
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php } ?>
+<?php if (session_flash_existed('message')) { ?>
+    <?php $message = session_flash_get('message') ?>
+    <?php if ($message['type'] === 'Danger') { ?>
+        <div style="color:red;text-align:center;"><?= $message['message'] ?></div>
+    <?php } else { ?>
+        <div style="color:Green;text-align:center;"><?= $message['message'] ?></div>
+    <?php } ?>
+<?php } ?>
 <section class="content-padding">
     <div class="container">
         <div class="text-center">
@@ -213,22 +207,21 @@
         </div>
         <div class="max-width">
             เล่าให้เราฟังเรื่องบ้านของคุณ
-            <form class="form" id="formID" method="POST">
-                <input type="hidden" name="submit_confirm" value="yes">
+            <form class="form" id="formID" method="POST" action="<?= url('lead-store') ?>">
                 <div class="mb-3 row">
                     <div class="col-lg-4">
-                        <input type="text" name="full_name" id="full_name" class="form-control" placeholder="ชื่อเต็ม">
+                        <input type="text" name="lead_name" id="full_name" class="form-control" placeholder="ชื่อเต็ม" required>
                     </div>
                     <div class="col-lg-4">
-                        <input type="text" name="telephone_number" id="telephone_number" class="form-control" placeholder="โทรศัพท์">
+                        <input type="text" name="lead_phone" id="telephone_number" class="form-control" placeholder="โทรศัพท์" required>
                     </div>
                     <div class="col-lg-4">
-                        <input type="email" name="user_email_address" id="user_email_address" class="form-control" placeholder="อีเมล">
+                        <input type="email" name="lead_email" id="user_email_address" class="form-control" placeholder="อีเมล" required>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <div class="col-lg-12">
-                        <textarea placeholder="ข้อความ" name="message_val" id="message_val" class="form-control"></textarea>
+                        <textarea placeholder="ข้อความ" name="lead_message" id="message_val" class="form-control" required></textarea>
                     </div>
                 </div>
                 <div class="text-center">
