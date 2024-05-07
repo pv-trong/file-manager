@@ -2,7 +2,7 @@
     <div class="card-body md:p-10">
         <div class="text-center">
             <div class="logo">
-                <img class="mx-auto" src="<?= asset('backend/img/logo/logo-light-streamline.png') ?>" alt="logo">
+                <img class="mx-auto" src="<?= asset('admin/img/logo/logo-light-streamline.png') ?>" alt="logo">
             </div>
         </div>
         <div class="text-center">

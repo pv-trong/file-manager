@@ -12,11 +12,11 @@ class SliderController extends Controller
         $this->form = 'pages/slider-manager/form';
         $this->scripts = [
             'ckfinder/ckfinder.js',
-            'backend/vendors/sortablejs/Sortable.min.js',
-            'backend/js/pages/slider-form.js',
+            'admin/vendors/sortablejs/Sortable.min.js',
+            'admin/js/pages/slider-form.js',
         ];
         $this->styles = [
-            'backend/css/slider-form.css',
+            'admin/css/slider-form.css',
         ];
         $this->route_list = '/backend/slider-manager';
     }
@@ -26,7 +26,7 @@ class SliderController extends Controller
         $data = [
             'scripts' => [
                 'ckfinder/ckfinder.js',
-                'backend/vendors/sortablejs/Sortable.min.js',
+                'admin/vendors/sortablejs/Sortable.min.js',
             ],
             'sliders' => $sliders,
         ];

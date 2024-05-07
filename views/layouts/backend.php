@@ -9,13 +9,13 @@
     <link rel="shortcut icon" href="<?= asset('img/favicon.ico') ?>">
     <title>HTML Tailwind Admin Template</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="<?= asset('backend/css/style.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= asset('admin/css/style.css') ?>">
     <?php if (isset($styles)) { ?>
         <?php foreach ($styles as $style) { ?>
             <link rel="stylesheet" type="text/css" href="<?= asset($style) ?>">
     <?php }
     } ?>
-    <link rel="stylesheet" type="text/css" href="<?= asset('backend/css/custom.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= asset('admin/css/custom.css') ?>">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                 <div class="side-nav side-nav-light side-nav-expand">
                     <div class="side-nav-header">
                         <div class="logo px-6">
-                            <img src="<?= asset('backend/img/logo/logo-light-full.png') ?>" alt="logo">
+                            <img src="<?= asset('admin/img/logo/logo-light-full.png') ?>" alt="logo">
                         </div>
                     </div>
                     <div class="side-nav-content relative side-nav-scroll">
@@ -104,7 +104,7 @@
                                     <div class="dropdown-toggle" id="nav-lang-dropdown" data-bs-toggle="dropdown">
                                         <div class="header-action-item header-action-item-hoverable flex items-center">
                                             <span class="avatar avatar-circle" data-avatar-size="24">
-                                                <img class="avatar-img avatar-circle" src="<?= asset('backend/img/countries/us.png') ?>" loading="lazy" alt="">
+                                                <img class="avatar-img avatar-circle" src="<?= asset('admin/img/countries/us.png') ?>" loading="lazy" alt="">
                                             </span>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
                                         <li class="menu-item menu-item-hoverable mb-1 justify-between h-[35px]">
                                             <span class="flex items-center">
                                                 <span class="avatar avatar-circle" data-avatar-size="18">
-                                                    <img class="avatar-img avatar-circle" src="<?= asset('backend/img/countries/us.png') ?>" loading="lazy" alt="">
+                                                    <img class="avatar-img avatar-circle" src="<?= asset('admin/img/countries/us.png') ?>" loading="lazy" alt="">
                                                 </span>
                                                 <span class="ltr:ml-2 rtl:mr-2">English</span>
                                             </span>
@@ -123,7 +123,7 @@
                                         <li class="menu-item menu-item-hoverable mb-1 justify-between h-[35px]">
                                             <span class="flex items-center">
                                                 <span class="avatar avatar-circle" data-avatar-size="18">
-                                                    <img class="avatar-img avatar-circle" src="<?= asset('backend/img/countries/cn.png') ?>" loading="lazy" alt="">
+                                                    <img class="avatar-img avatar-circle" src="<?= asset('admin/img/countries/cn.png') ?>" loading="lazy" alt="">
                                                 </span>
                                                 <span class="ltr:ml-2 rtl:mr-2">
                                                     Chinese
@@ -144,7 +144,7 @@
                                     <div class="dropdown-toggle" id="user-dropdown" data-bs-toggle="dropdown">
                                         <div class="header-action-item flex items-center gap-2">
                                             <span class="avatar avatar-circle" data-avatar-size="32" style="width: 32px">
-                                                <img class="avatar-img avatar-circle" src="<?= asset('backend/img/avatars/thumb-1.jpg') ?>" loading="lazy" alt=""></span>
+                                                <img class="avatar-img avatar-circle" src="<?= asset('admin/img/avatars/thumb-1.jpg') ?>" loading="lazy" alt=""></span>
                                             <div class="hidden md:block">
                                                 <div class="text-xs capitalize"><?= auth()['username'] ?></div>
                                                 <div class="font-bold"><?= auth()['email'] ?></div>
@@ -155,7 +155,7 @@
                                         <li class="menu-item-header">
                                             <div class="py-2 px-3 flex items-center gap-2">
                                                 <span class="avatar avatar-circle avatar-md">
-                                                    <img class="avatar-img avatar-circle" src="<?= asset('backend/img/avatars/thumb-1.jpg') ?>" loading="lazy" alt="">
+                                                    <img class="avatar-img avatar-circle" src="<?= asset('admin/img/avatars/thumb-1.jpg') ?>" loading="lazy" alt="">
                                                 </span>
                                                 <div>
                                                     <div class="font-bold text-gray-900 dark:text-gray-100"><?= auth()['username'] ?></div>
@@ -441,9 +441,9 @@
         </div>
     </div>
 
-    <script src="<?= asset('backend/js/vendors.min.js') ?>"></script>
-    <script src="<?= asset('backend/js/app.min.js') ?>"></script>
-    <script src="<?= asset('backend/js/toast-html.js') ?>"></script>
+    <script src="<?= asset('admin/js/vendors.min.js') ?>"></script>
+    <script src="<?= asset('admin/js/app.min.js') ?>"></script>
+    <script src="<?= asset('admin/js/toast-html.js') ?>"></script>
     <?php if (isset($scripts)) { ?>
         <?php foreach ($scripts as $script) { ?>
             <script src="<?= asset($script) ?>"></script>
@@ -459,14 +459,6 @@
                 setTimeout(function() {
                     $('#notification-toast .toast:first-child').remove();
                 }, 5000);
-            })
-        </script>
-    <?php } ?>
-    <?php if (session_flash_existed('tabCurrent')) { ?>
-        <?php $tabCurrent = session_flash_get('tabCurrent') ?>
-        <script>
-            window.addEventListener('load', function() {
-                $('.tab-nav[data-bs-target="<?= $tabCurrent['target'] ?>"]').trigger('click');
             })
         </script>
     <?php } ?>

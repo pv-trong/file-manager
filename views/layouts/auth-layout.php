@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="<?= asset('img/favicon.ico') ?>">
     <title>HTML Tailwind Admin Template</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" type="text/css" href="<?= asset('backend/css/style.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= asset('admin/css/style.css') ?>">
 </head>
 <body>
 <div id="notification-toast" class="toast-wrapper top-center"></div>
@@ -26,10 +26,10 @@
         </main>
     </div>
 </div>
-<script src="<?= asset('backend/js/vendors.min.js') ?>"></script>
-<script src="<?= asset('backend/js/app.min.js') ?>"></script>
-<script src="<?= asset('backend/js/toast-html.js') ?>"></script>
-<script src="<?= asset('backend/vendors/jquery-validation/jquery.validate.min.js') ?>"></script>
+<script src="<?= asset('admin/js/vendors.min.js') ?>"></script>
+<script src="<?= asset('admin/js/app.min.js') ?>"></script>
+<script src="<?= asset('admin/js/toast-html.js') ?>"></script>
+<script src="<?= asset('admin/vendors/jquery-validation/jquery.validate.min.js') ?>"></script>
 
 <?php if (session_flash_existed('message')) { ?>
 <?php $message = session_flash_get('message') ?>
