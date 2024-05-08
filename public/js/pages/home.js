@@ -3,7 +3,10 @@ $('.slider-base').owlCarousel({
     margin: 10,
     items: 1,
     animateOut: 'fadeOut',
-    autoplay:true,
+    autoplay: true,
     autoplayTimeout: 2000,
     mouseDrag: false,
 })
+$('.toggleMenu').on('click', function () {
+    $('.navigation').slideToggle();
+});
