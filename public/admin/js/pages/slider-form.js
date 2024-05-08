@@ -10,7 +10,7 @@ document.querySelector('#choose-file').addEventListener('click', function () {
         onInit: function (finder) {
             finder.on('files:choose', function (evt) {
                 let file = evt.data.files.first();
-                const newItemString = itemTemplate.replace('__url__', `/${file.getUrl()}`);
+                const newItemString = itemTemplate.replace('__url__', `${file.getUrl()}`);
                 const newItem = createElementFromHTML(newItemString);
                 document.querySelector('#list-image').appendChild(newItem);
                 setImageUrl();

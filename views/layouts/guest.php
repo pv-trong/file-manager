@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="<?= asset('fonts/fonts.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/custom.css') ?>">
-
+    <link rel="stylesheet" href="<?= asset('libs/owlcarousel2/owl.carousel.min.css') ?>">
+    <link rel="stylesheet" href="<?= asset('libs/owlcarousel2/owl.theme.default.min.css') ?>">
 </head>
 
 <body>
@@ -88,6 +89,12 @@
     </footer>
     <script src="<?= asset('js/jquery.min.js') ?>"></script>
     <script src="<?= asset('js/bootstrap.min.js') ?>"></script>
+    <script src="<?= asset('libs/owlcarousel2/owl.carousel.min.js') ?>"></script>
+    <?php if (isset($scripts)) { ?>
+        <?php foreach ($scripts as $script) { ?>
+            <script src="<?= asset($script) ?>"></script>
+    <?php }
+    } ?>
 </body>
 
 </html>

@@ -34,7 +34,7 @@
                 <div>
                     <div class="upload upload-draggable hover:border-primary-600" id="choose-file">
                         <div class="my-16 text-center">
-                            <img src="<?= asset('backend/img/others/upload.png') ?>" class="mx-auto">
+                            <img src="<?= asset('admin/img/others/upload.png') ?>" class="mx-auto">
                             <p class="font-semibold">
                                 <span class="text-gray-800 dark:text-white">Choose your image here</span>
                             </p>

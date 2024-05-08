@@ -13,15 +13,18 @@ class PagesController extends Controller
     public function index()
     {
         $data = [
-            'sliders' => [
-                'sliderFirst' => null,
+            'scripts' => [
+                'js/pages/home.js',
             ],
         ];
-        $firstSlider = $this->slider->findBy('slider_key', 'first-slider');
-        if ($firstSlider) {
-            $firstSlider->images = explode(';', $firstSlider->images);
-            $data['sliders']['sliderFirst'] = $firstSlider;
+        $firstSliders = $this->slider->all();
+        $sliders = [];
+        if ($firstSliders) {
+            foreach($firstSliders as $slider) {
+                $sliders[$slider['slider_key']] = explode(';', $slider['images']);
+            }
         }
+        $data['sliders'] =  $sliders;
         $this->renderWithLayout('index', 'guest', $data);
     }
 
